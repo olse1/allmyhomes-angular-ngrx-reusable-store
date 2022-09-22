@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './second-counter.actions';
+import { actions } from './second-counter.actions';
 
 export const featureKey = 'second-counter';
 
@@ -13,9 +13,9 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(increment, (state) => ({ count: state.count + 1 })),
-  on(decrement, (state) => ({ count: state.count - 1 })),
-  on(reset, (state) => ({ count: 0 }))
+  on(actions.increment, (state) => ({ count: state.count + 1 })),
+  on(actions.decrement, (state) => ({ count: state.count - 1 })),
+  on(actions.reset, (state) => ({ count: 0 }))
 );
 
 /*

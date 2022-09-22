@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { decrement, increment, reset } from '../store/second-counter.actions';
+import { actions } from '../store/second-counter.actions';
 import { State } from '../store/second-counter.reducer';
 import { selectCount } from '../store/second-counter.selectors';
 
@@ -18,14 +18,14 @@ export class MySecondCounterComponent {
   }
 
   increment() {
-    this.store.dispatch(increment());
+    this.store.dispatch(actions.increment());
   }
 
   decrement() {
-    this.store.dispatch(decrement());
+    this.store.dispatch(actions.decrement());
   }
 
   reset() {
-    this.store.dispatch(reset());
+    this.store.dispatch(actions.reset());
   }
 }

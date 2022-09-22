@@ -1,8 +1,7 @@
 import { createAction } from '@ngrx/store';
+import { createCounterActions } from '../../shared/store/create-counter-actions';
 
-export const increment = createAction('[Second Counter Component] Increment');
-export const decrement = createAction('[Second Counter Component] Decrement');
-export const reset = createAction('[Second Counter Component] Reset');
+export const actions = createCounterActions('Second Counter Component');
 
 /*
 Use of this source code is governed by an MIT-style license that

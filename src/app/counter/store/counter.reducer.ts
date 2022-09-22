@@ -1,6 +1,6 @@
 import { EntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './counter.actions';
+import { actions } from './counter.actions';
 
 export const featureKey = 'counter';
 
@@ -14,9 +14,9 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(increment, (state) => ({ count: state.count + 1 })),
-  on(decrement, (state) => ({ count: state.count - 1 })),
-  on(reset, (state) => ({ count: 0 }))
+  on(actions.increment, (state) => ({ count: state.count + 1 })),
+  on(actions.decrement, (state) => ({ count: state.count - 1 })),
+  on(actions.reset, (state) => ({ count: 0 }))
 );
 
 /*

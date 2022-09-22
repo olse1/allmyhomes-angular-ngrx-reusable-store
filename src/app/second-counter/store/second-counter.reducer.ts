@@ -3,13 +3,19 @@ import { increment, decrement, reset } from './second-counter.actions';
 
 export const featureKey = 'second-counter';
 
-export const initialState = 0;
+export interface State {
+  count: number;
+}
+
+export const initialState: State = {
+  count: 0,
+};
 
 export const reducer = createReducer(
   initialState,
-  on(increment, (state) => state + 1),
-  on(decrement, (state) => state - 1),
-  on(reset, (state) => 0)
+  on(increment, (state) => ({ count: state.count + 1 })),
+  on(decrement, (state) => ({ count: state.count - 1 })),
+  on(reset, (state) => ({ count: 0 }))
 );
 
 /*

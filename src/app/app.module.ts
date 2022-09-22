@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { CounterModule } from './counter/counter.module';
 import { SecondCounterModule } from './second-counter/second-counter.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
     CounterModule,
     SecondCounterModule,
-    StoreModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

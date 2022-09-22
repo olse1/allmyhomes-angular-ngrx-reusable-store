@@ -1,6 +1,9 @@
+import { createAction, props } from '@ngrx/store';
 import { createCounterActions } from '../../shared/store/create-counter-actions';
 
-export const actions = createCounterActions('Counter Component');
+export const actions = {
+  ...createCounterActions('Counter Component'),
+};
 
 /*
 Use of this source code is governed by an MIT-style license that

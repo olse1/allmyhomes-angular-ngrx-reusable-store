@@ -10,20 +10,16 @@ export interface CounterState {
   count: number;
 }
 
-const initialState: CounterState = {
-  count: 0,
-};
-
-function createReducersPartial<S, A extends Action = Action>(
+function createReducersArray<S, A extends Action = Action>(
   initialState: S,
   ...ons: ReducerTypes<S, readonly ActionCreator[]>[]
 ) {
-  return [...ons];
+  return ons;
 }
 
-export const createCounterReducers = (actions: typeof counterActions) => createReducersPartial(
+export const createCounterReducers = (initialState: CounterState, actions: typeof counterActions) => createReducersArray(
   initialState,
-  on(actions.increment, (state: CounterState) => ({
+  on(actions.increment, (state) => ({
     ...state,
     count: state.count + 1,
   })),

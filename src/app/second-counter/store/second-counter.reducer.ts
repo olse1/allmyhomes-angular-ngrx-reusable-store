@@ -12,7 +12,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  ...createCounterReducers(actions)
+  ...createCounterReducers(initialState, actions)
 );
 
 /*

@@ -10,7 +10,7 @@ export const featureKey = "counter";
 export interface State extends CounterState {}
 
 export const initialState: State = {
-  count: 0,
+  count: 10,
 };
 
 export interface CounterMetaState {
@@ -20,7 +20,7 @@ export interface CounterMetaState {
 
 export const reducer = createReducer(
   initialState,
-  ...createCounterReducers(actions)
+  ...createCounterReducers(initialState, actions)
 );
 
 // export const metaCounterReducer: ActionReducerMap<CounterMetaState> = {

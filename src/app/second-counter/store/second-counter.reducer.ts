@@ -1,7 +1,6 @@
-import { createReducer, on } from '@ngrx/store';
-import { CounterState } from '../../shared/store/counter-state.model';
+import { createReducer } from '@ngrx/store';
 import { actions } from './second-counter.actions';
-import { createCounterReducers } from '../../shared/store/create-counter-reducers';
+import { CounterState, createCounterReducers } from '../../shared/store/create-counter-reducers';
 
 export const featureKey = 'second-counter';
 

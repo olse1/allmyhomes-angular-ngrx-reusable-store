@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as CounterActions from './counter.actions';
 import { of } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class CounterEffects {
-  incrementEffect2$ = createEffect(() => {
+  incrementEffect$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(CounterActions.actions.increment),
       concatMap(() => {

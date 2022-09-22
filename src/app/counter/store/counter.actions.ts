@@ -1,8 +1,12 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 import { createCounterActions } from '../../shared/store/create-counter-actions';
 
+export const counterActions = createCounterActions('Counter Component');
+
+export const reset = createAction(`['Counter Component'] Reset`);
+
 export const actions = {
-  ...createCounterActions('Counter Component'),
+  ...counterActions,
 };
 
 /*

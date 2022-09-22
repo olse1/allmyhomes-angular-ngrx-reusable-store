@@ -8,3 +8,6 @@ export const selectCount = createSelector(
   getContactPreferencesState,
   (state: fromCounter.State) => state.count
 );
+
+
+// export const selectCount = createSelector(getContactPreferencesState, getMyCounterCount);

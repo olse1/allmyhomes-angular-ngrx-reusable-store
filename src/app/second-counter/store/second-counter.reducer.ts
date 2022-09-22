@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
+import { CounterState } from '../../shared/store/counter-state.model';
 import { actions } from './second-counter.actions';
+import { createCounterReducers } from '../../shared/store/create-counter-reducers';
 
 export const featureKey = 'second-counter';
 
-export interface State {
-  count: number;
-}
+export interface State extends CounterState {}
 
 export const initialState: State = {
   count: 0,
@@ -13,9 +13,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(actions.increment, (state) => ({ count: state.count + 1 })),
-  on(actions.decrement, (state) => ({ count: state.count - 1 })),
-  on(actions.reset, (state) => ({ count: 0 }))
+  ...createCounterReducers(actions)
 );
 
 /*

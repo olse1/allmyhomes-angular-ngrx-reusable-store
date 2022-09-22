@@ -6,16 +6,15 @@ import { concatMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class CounterEffects {
-  @Effect()
-  incrementEffect$ = () => {
+  incrementEffect2$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(CounterActions.actions.increment),
       concatMap(() => {
         console.log('hallo effect');
-        return of(CounterActions.actions.incrementDouble({ addCount: 2 }));
+        return of(CounterActions.actions.incrementDouble({ addCount: 10 }));
       })
     );
-  };
+  });
 
   constructor(private readonly actions$: Actions) {
     console.log('hallo');
